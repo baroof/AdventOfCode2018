@@ -22,6 +22,7 @@ namespace DayTwo
                             "aabcdd",  //expect: two only (a & d, but only counts once)
                             "abcdee",  //expect: two only (e)
                             "ababab" };//expect: three only (a & b, but only counts once)
+                                       //expected totals: 4 twos, 3 threes
             //string pattern = "abc";
             string basicpattern = @"(?<first>\w{1}).*(\k<first>)";
 
@@ -55,32 +56,51 @@ namespace DayTwo
             }
         }
 
-        private static void GetBrutal(string[] input)
+        public static void GetBrutal(string[] input)
         {
+            int totalTwos = 0;
+            int totalThrees = 0;
             foreach (string line in input)
             {
                 Hashtable letterCounts = new Hashtable();
-
-
                 foreach (char letter in line)
                 {
                     try
                     {
                         letterCounts.Add(letter, 1);
-                        Console.WriteLine("first time for " + letter + "... added...");
+                        //Console.WriteLine("first time for " + letter + "... added...");
                     }
                     catch
                     {
                         letterCounts[letter] = (int)letterCounts[letter] + 1;
-                        Console.WriteLine("already seen " + letter + "! Incremented...");
-
+                        //Console.WriteLine("already seen " + letter + "! Incremented...");
                     }
 
-                    Console.WriteLine("now on letter: " + letter + " in line: " + line + "... count is at: " + letterCounts[letter] );
+                    //Console.WriteLine("now on letter: " + letter + " in line: " + line + "... count is at: " + letterCounts[letter] );
+                }
 
-               
+                var gotTwo = false;
+                var gotThree = false;
+                foreach (char key in letterCounts.Keys)
+                {
+                    if (letterCounts[key].Equals(2) && !gotTwo)
+                    {
+                        Console.WriteLine("found that " + key + "has two hits");
+                        gotTwo = true;
+                        totalTwos++;
+                    }
+
+                    if (letterCounts[key].Equals(3) && !gotThree)
+                    {
+                        Console.WriteLine("found that " + key + "has three hits");
+                        gotThree = true;
+                        totalThrees++;
+                    }
                 }
             }
+            Console.WriteLine("total twos = " + totalTwos);
+            Console.WriteLine("total threes = " + totalThrees);
+            Console.WriteLine("total = " + totalTwos * totalThrees);
         }
     }
                 
