@@ -13,9 +13,10 @@ namespace DayTwo
         static void Main(string[] args)
         {
             //PartOne.RunTests();
+            PartTwo.RunTests();
 
-            string[] input = System.IO.File.ReadAllLines(args[0]);
-            PartOne.GetBrutal(input);
+            //string[] input = System.IO.File.ReadAllLines(args[0]);
+            //PartOne.GetBrutal(input);
 
             // The code provided will print ‘Hello World’ to the console.
             // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
