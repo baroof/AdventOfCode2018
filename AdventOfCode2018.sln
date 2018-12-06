@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DayOne", "ConsoleApp1\DayOne.csproj", "{DA90D84C-2540-4492-928C-44C18F099422}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day01", "ConsoleApp1\Day01.csproj", "{DA90D84C-2540-4492-928C-44C18F099422}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DayTwo", "DayTwo\DayTwo.csproj", "{75CBC5AA-2067-4285-A2C6-06FFCEF75C70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day02", "DayTwo\Day02.csproj", "{75CBC5AA-2067-4285-A2C6-06FFCEF75C70}"
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PyDayOne", "PyDayOne\PyDayOne.pyproj", "{4FA400E5-C0D7-4DFD-89E1-4AC66F627306}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day03", "Day03\Day03.csproj", "{F3C1F492-152F-47D1-A8F7-9C437A978919}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{75CBC5AA-2067-4285-A2C6-06FFCEF75C70}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4FA400E5-C0D7-4DFD-89E1-4AC66F627306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4FA400E5-C0D7-4DFD-89E1-4AC66F627306}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3C1F492-152F-47D1-A8F7-9C437A978919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3C1F492-152F-47D1-A8F7-9C437A978919}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3C1F492-152F-47D1-A8F7-9C437A978919}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3C1F492-152F-47D1-A8F7-9C437A978919}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
