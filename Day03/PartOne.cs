@@ -23,7 +23,7 @@ namespace DayThree
 
             foreach (string line in input)
             {
-                Console.WriteLine(line);
+                //Console.WriteLine(line);
                 Match m = rx.Match(line);
                 while (m.Success)
                 {
@@ -51,13 +51,26 @@ namespace DayThree
                 
             }
 
-            int[,] grid = new int[bigWidth+1, bigHeight+1];
+            // make the 2d array one tick larger for padding around the claims
+            int gridWidth = bigWidth + 1;
+            int gridHeight = bigHeight + 1;
+            object[,] grid = new object[gridWidth, gridHeight];
+            
+            // pre-populate the whole grid with 0s
+            for (int m = 0; m < gridWidth; m++)
+            {
+                for (int n = 0; n < gridHeight; n++)
+                {
+                    grid[m, n] = 0;
+                }
+            }
 
             int countx = 0;
-            // yes, again, dammit
+
+            // go through it all again to populate the grid
             foreach (string line in input)
             {
-                Console.WriteLine(line);
+                //Console.WriteLine(line);
                 Match m = rx.Match(line);
                 while (m.Success)
                 {
@@ -67,40 +80,38 @@ namespace DayThree
                     int width = int.Parse(m.Groups[4].Value);
                     int height = int.Parse(m.Groups[5].Value);
 
-                    for (int i = 0; i < width; i++)
+                    for (int x = fromLeft; x < (fromLeft + width); x++)
                     {
-                        int x = fromLeft + i;
-                        int y = fromTop;
-                        if (grid[x, y] <= 0)
+                        for (int y = fromTop; y < (fromTop + height); y++)
                         {
-                            grid[x, y] = id;
-                        }
-                        else
-                        {
-                            countx++;
+                            if (object.Equals(grid[x, y],0))
+                            {
+                                grid[x, y] = id;
+                            }
+                            else
+                            {
+                                grid[x, y] = "#";
+                                countx++;
+                            }
                         }
                     }
 
-                    for (int i = 0; i < height; i++)
-                    {
-                        int x = fromLeft;
-                        int y = fromTop + i;
-                        if (grid[x, y] <= 0)
-                        {
-                            grid[x, y] = id;
-                        }
-                        else
-                        {
-                            countx++;
-                        }
-                    }
                     m = m.NextMatch();
                 }
             }
 
-            Console.WriteLine("countx: {0}", countx);
-                    
 
+            Console.WriteLine("countx: {0}", countx);
+
+            for (int i = 0; i < gridWidth; i++)
+            {
+                for (int j = 0; j < gridHeight; j++)
+                {
+                    Console.Write(string.Format("{0} ", grid[i, j]));
+                }
+                Console.Write(Environment.NewLine);// + Environment.NewLine);
+            }
+            //Console.ReadLine();
 
             return 0;
         }

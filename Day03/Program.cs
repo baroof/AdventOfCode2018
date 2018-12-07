@@ -18,9 +18,9 @@ namespace DayThree
                 "#2 @ 3,1: 4x4",
                 "#3 @ 5,5: 2x2"};
 
-            //PartOne.DisplayClaims(testinput);
 
-            string[] input = System.IO.File.ReadAllLines(args[0]);
+            string[] input = testinput;
+            //string[] input = System.IO.File.ReadAllLines(args[0]);
             PartOne.DisplayClaims(input);
 
             
